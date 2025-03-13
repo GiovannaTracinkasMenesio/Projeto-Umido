@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Economia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #e2f4e6;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2a7a4e;
+        }
+
+        label {
+            color: #317c6e;
+            font-size: 18px;
+        }
+
+        input[type="number"],
+        input[type="text"] {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            width: 80%;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #2a7a4e;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        button:hover {
+            background-color: #1e5a39;
+        }
+
+        .result-container {
+            margin-top: 20px;
+            background-color: #f2f9f2;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .result-container div {
+            margin-bottom: 10px;
+        }
+
+        .result-container h3 {
+            color: #317c6e;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Calculadora de Economia para Agricultores</h1>
+
+        <label for="ipt_area">Insira a área em hectares da sua plantação</label>
+        <input type="number" id="ipt_area" required>
+
+        <br>
+
+        <label for="ipt_plantacao">Insira seu tipo de plantação</label>
+        <input type="text" id="ipt_plantacao" required>
+
+        <button onclick="calcular()">Calcular economia</button>
+
+        <div class="result-container">
+            <div id="div1">
+                <h3 id="h3_resultado_liquido"></h3>
+            </div>
+            <div id="div2">
+                <h3 id="h3_resultado_economia"></h3>
+                <h3 id="h3_resultado_isencao"></h3>
+            </div>
+            <div id="div3">
+                <h3 id="h3_total_economia"></h3>
+            </div>
+            <div id="div4">
+                <h3 id="h3_projecao_ano"></h3>
+                <h3 id="h3_projecao_semanal"></h3>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calcular() {
+            var area = Number(ipt_area.value);
+            var plantacao = ipt_plantacao.value;
+            var valorHectar = 0;
+            var total = 0;
+            var economia_prevencao = 0;
+            var imposto = 0;
+            var totalEconomizado = 0;
+            var economia_imposto = 0;
+
+            if (plantacao == "soja") {
+                valorHectar = 3000;
+            }
+            else if (plantacao == "café") {
+                valorHectar = 19000;
+                imposto = 0.17;
+            }
+
+            total = valorHectar * area;
+
+            economia_prevencao = total * 0.3;
+            economia_imposto = total * imposto;
+
+            totalEconomizado = economia_prevencao + economia_imposto;
+
+            var projAnual = totalEconomizado;
+
+            var projSemanal = totalEconomizado * 52;
+
+            h3_resultado_liquido.innerHTML = `Sua plantação vale R$${total.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ao todo.`;
+            h3_resultado_economia.innerHTML = `Você economizará R$${economia_prevencao.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} com a prevenção.`;
+            h3_resultado_isencao.innerHTML = `Você economizará R$${economia_imposto.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} com impostos.`;
+            h3_total_economia.innerHTML = `Economia total: R$${totalEconomizado.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}.`;
+
+            h3_projecao_semanal.innerHTML = `Projeção de economia após 1 ano (1 vez por semana): R$${projSemanal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}.`;
+        }
+    </script>
+</body>
+
+</html>
