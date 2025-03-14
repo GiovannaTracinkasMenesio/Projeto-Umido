@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umido: Simulador Financeiro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="id_body">
+        <h1 id="titulo1">Simulador Financeiro de Economia - Umido</h1>
+        <p id="paragrafo"> A UMIDO tem o compromisso de reduzir em até 30% os incidentes de queimada provocados pela baixa umidade. <br> Calcule aqui o prejuízo mínimo estimado que você teria em caso de queimada na sua plantação </p> <br>
+        
+        
+        <div id="div_quadro">
+            <div id="div_ipts">
+                <label for="ipt_hectares" id="label_ipt_hectares" >Insira quantos hectares tem sua plantação:</label>
+                <input type="number" id="ipt_hectares" min="0"> <br>
+                <label for="ipt_tipo_grao" id="label_tipoGrao">Insira o tipo de grão cultivado na sua plantação: </label>
+                <input type="text" id="ipt_tipo_grao" placeholder="Ex: Soja, Milho, Arroz"> <br>
+                <label for="botaoLucro" id="label_cliqueAqui" >Clique aqui para calcular seu prejuízo estimado :</label> <br>
+                <button onclick="CalculaEconomia()" id="botaoLucro">Ver prejuízo </button>
+                <div id="div_innerHTML">
+                    <h2 id="h2_exibeGasto"></h2>
+                </div>
+                
+            </div>
+        </div>
+          
+</body>
+<script>
+    function CalculaEconomia(){
+        var tipoPlantacao = ipt_tipo_grao.value; //para estruturas de decisão
+        var valorGraoPorHectare = 0; // para ver quanto o produtor gasta para produzir determinado tipo de plantação
+        var hectares  = Number(ipt_hectares.value);  // recebe quantos hectares tem a fazenda 
+        var calculaGasto = 0; // é atualizado dentro dos if's calculando o quanto o procutor gasta para a produção como um todo
+        
+        if(tipoPlantacao == 'Soja' || tipoPlantacao == 'soja'){
+            valorGraoPorHectare = 5998.05;
+            calculaGasto = (valorGraoPorHectare * hectares);
+            h2_exibeGasto.innerHTML = `Em caso de queimada, você teria um prejuízo de no mínimo R$${calculaGasto.toLocaleString('pt-BR')}`
+        } else if(tipoPlantacao == 'Milho' || tipoPlantacao == 'milho'){
+            valorGraoPorHectare = 3363.14;
+            calculaGasto = (valorGraoPorHectare * hectares);
+            h2_exibeGasto.innerHTML = `Em caso de queimada, você teria um prejuízo de no mínimo R$${calculaGasto.toLocaleString('pt-BR')}`
+        } else if(tipoPlantacao == 'Arroz' || tipoPlantacao == 'arroz'){
+            valorGraoPorHectare = 11567.74;
+            calculaGasto = (valorGraoPorHectare * hectares);
+            h2_exibeGasto.innerHTML = `Em caso de queimada, você teria um prejuízo de no mínimo R$${calculaGasto.toLocaleString('pt-BR')}`
+        } else {
+        h2_exibeGasto.innerHTML = 'Insira um grão válido'}
+
+
+}
+</script>
+</html>

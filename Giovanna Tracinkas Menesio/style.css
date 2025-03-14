@@ -1,0 +1,86 @@
+
+#id_body {
+    background-color: #60a34c;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1, p {
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 25px;
+}
+h1{
+    font-size: 40px;
+}
+
+
+#div_quadro {
+    width: 700px;
+    height: auto;
+    margin: 20px auto;
+    background-color: #d7feb7;
+    border-radius: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+}
+
+#div_ipts {
+    text-align: center;
+    width: 100%;
+}
+
+#label_ipt_hectares, #label_tipoGrao, #label_cliqueAqui {
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    margin-bottom: 10px;
+    display: block; /* Faz o label aparecer em uma linha acima do input */
+}
+#label_cliqueAqui{
+    margin-top: 50px;
+    margin-bottom: 0px;
+}
+
+input {
+    width: 250px;
+    height: 30px;
+    border-radius: 100px;
+    padding-left: 10px;
+    font-size: 18px;
+}
+
+#botaoLucro {
+    font-size: 20px;
+    width: 160px;
+    height: 40px;
+    border-radius: 100px;
+    background-color: #00c327;
+    border: none;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+#h2_exibeGasto, #h2_else {
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    margin-top: 10px;
+    gap: 15px;
+}
+
+
+#div_innerHTML {
+    text-align: center;
+    margin-top: 20px;
+}
