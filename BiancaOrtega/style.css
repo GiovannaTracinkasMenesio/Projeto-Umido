@@ -1,0 +1,35 @@
+body{
+    background-color: #3CBA54;
+    background-size: cover; 
+    background-position: center;
+}
+#h2{
+    text-align: center;
+    font-size: 200%;
+}
+.divipt{
+    text-align: center;
+    margin-left: 690px;
+    margin-right: 690px;
+    width: auto;
+    height: auto;
+    background-color: #94e08d ;
+    border-radius: 20%;
+    font-size: 130%;
+}
+.pmeio{
+    text-align: center;
+    font-family: Georgia, 'Times New Roman' ;
+    font-size: 150%;
+}
+.presp{
+    text-align: center;
+    margin-left: 600px;
+    margin-right: 600px;
+    width: 500;
+    height: 500;
+    background-color: #87df7f ;
+    border-radius: 5%;
+    font-size: 130%;
+    flex: 4;
+}

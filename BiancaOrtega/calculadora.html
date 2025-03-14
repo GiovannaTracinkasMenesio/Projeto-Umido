@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    
+        <h2 id="h2" > Simulador de ganho Finandeiro  </h2>
+        <p class="pmeio" > 
+           A UMIDO tem práticas sustentáveis, que favorecem os produtores: <br>
+          - Redução de impostos de renda até 60% e isenção de impostos para comércio.  <br>
+          - Produtos com certificação podem ter um acrécimo de até 30% em suas vendas
+        </p>
+
+        <div class="divipt" > 
+        <label for="ipt_area"> Digite a Área de seu latifúndio em hectare:</label> <br>
+        <input type="number" id="ipt_area"> <br>
+        <label for="ipt_prodmedia"> Digite sua produção média por hectare: </label> <br>
+        <input type="number" id="ipt_prodmedia"> <br>
+        <label for="ipt_tipo"> Digite o tipo da sua plantação: </label> <br>
+        <input type="text" id="ipt_tipo"> <br>
+        <label for="ipt_preconormal"> Digite o preço da sua produção média por hectare: </label> <br>
+        <input type="text" id="ipt_preconormal"> <br>
+        <label for="ipt_imposto"> Digite quanto você paga no imposto de renda: </label> <br>
+        <input type="number" id="ipt_imposto"> <br>
+        <button onclick="verificar()"> Calcular </button> 
+        </div>
+        <div class="presp">
+         <p id="p_resp"> </p>
+        </div>
+       
+
+</body>
+
+<script>
+
+    function verificar(){
+        var area = Number(ipt_area.value)
+        var mediaprod = Number(ipt_prodmedia.value)
+        var impostorenda = Number(ipt_imposto.value)
+        var tipo = ipt_tipo.value
+        var preconormal = Number(ipt_preconormal.value)
+
+        var prodtotal = area * mediaprod 
+        var impostod = impostorenda * 0.4
+        var precosct = preconormal * prodtotal
+
+
+        if ( tipo == 'soja' || tipo == 'milho' || tipo == 'algodão' ){
+                var precocct = precosct * 1.2
+                var lucrocc = precocct - precosct 
+                var lucroir = impostorenda - impostod
+            
+
+            p_resp.innerHTML = ` <p> Sua produção total, normalmente tem o valor de R$${ precosct } <br>
+                                    Com a Umido você ira lucrar R$${lucrocc} com a sua produção total de ${tipo} podendo chegar ao valor de R$${precocct} <br>
+                                    Seu imposto de renda terá redução em média de 60% por ter práticas sustentáveis e irá de R$${impostorenda} para R$${impostod} <br>
+                                    Tendo uma economia de até R${lucroir} <br>
+                                    Ao todo, com a Umido, seu faturamento mensal pode aumentar até R${ lucroir + lucrocc }
+                                </p> `
+        }
+        else if ( tipo == 'café' || tipo == 'feijão' || tipo == 'frutas tropicais' || tipo ==  'banana' || tipo == 'mamão' || tipo == 'manga' ){
+                var precocct = precosct * 1.3
+                var lucrocc = precocct - precosct 
+                var lucroir = impostorenda - impostod
+            
+
+            p_resp.innerHTML = ` <p> Sua produção total, normalmente tem o valor de R$${ precosct } <br>
+                                    Com a Umido você ira lucrar R$${lucrocc} com a sua produção total de ${tipo} podendo chegar ao valor de R$${precocct} <br>
+                                    Seu imposto de renda terá redução em média de 60% por ter práticas sustentáveis e irá de R$${impostorenda} para R$${impostod} <br>
+                                    Tendo uma economia de até R${lucroir} <br>
+                                    Ao todo, com a Umido, seu faturamento mensal pode aumentar até R${ lucroir + lucrocc }
+                                </p> `
+
+        }
+        else if ( tipo == 'cana-de-açúcar' || tipo == 'arroz' || tipo == 'trigo' || tipo == 'laranja' ){
+                var precocct = precosct * 1.25
+                var lucrocc = precocct - precosct 
+                var lucroir = impostorenda - impostod
+            
+
+            p_resp.innerHTML = ` <p> Sua produção total, normalmente tem o valor de R$${ precosct } <br>
+                                    Com a Umido você ira lucrar R$${lucrocc} com a sua produção total de ${tipo} podendo chegar ao valor de R$${precocct} <br>
+                                    Seu imposto de renda terá redução em média de 60% por ter práticas sustentáveis e irá de R$${impostorenda} para R$${impostod} <br>
+                                    Tendo uma economia de até R${lucroir} <br>
+                                    Ao todo, com a Umido, seu faturamento mensal pode aumentar até R${ lucroir + lucrocc }
+                                </p> `
+        }
+        else {
+                var precocct = precosct * 1.25
+                var lucrocc = precocct - precosct 
+                var lucroir = impostorenda - impostod
+            
+
+            p_resp.innerHTML = ` <p> Sua produção total, normalmente tem o valor de R$${ precosct } <br>
+                                    Com a Umido você ira lucrar R$${lucrocc} com a sua produção total de ${tipo} podendo chegar ao valor de R$${precocct} <br>
+                                    Seu imposto de renda terá redução em média de 60% por ter práticas sustentáveis e irá de R$${impostorenda} para R$${impostod} <br>
+                                    Tendo uma economia de até R${lucroir} <br>
+                                    Ao todo, com a Umido, seu faturamento mensal pode aumentar até R${ lucroir + lucrocc }
+                                </p> `
+        }
+        
+
+    }
+
+
+</script>
+
+</html>
