@@ -28,7 +28,7 @@ create table usuario(
     id_endereco int,
     id_plano int,
     id_tipo_plantacao int,
-    cpf char(11) not null,
+    cnpj char(14) not null,
     nome varchar(50) not null,
     email varchar(70) not null,
     telefone varchar(14) not null,
