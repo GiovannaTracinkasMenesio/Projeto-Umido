@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador financeiro</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 150px;
+             background-image: url(https://images.unsplash.com/photo-1551551313-fe7031e26248?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D); /*Coloca imagem no fundo do body */
+        }
+
+        .main{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: white;
+            border-radius: 30px; /* Arredonda as bordas da div main */
+            width: 700px;
+            height: 400px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        h1{ 
+            margin: 25px;
+            color: #2A813B; /*Troca a cor do titulo h1*/
+        }
+
+        input{
+            margin: 20px;
+        }
+
+        button{
+            height: 30px;
+            width: 150px;
+            border: 0; /*remove a borda do botão*/
+            border-radius: 10px; /* Arredonda as bordas do botão */
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: #FFFDFD;
+            margin-top: 50px;
+            background-color: #23A9DF;
+        }
+
+         button:hover{ /*Quando arrastar por cima do botão */
+            transition: 0.5s; /*faz uma transição*/
+            background-color: #186B90;
+        }
+
+    </style>
+</head>
+
+<body>
+     <div class="main"> <!--div que agrupa os elementos -->
+        <h1>Calculadora Financeira</h1>
+        <br>
+
+        <label for="ipt_tamanho_hectare">Insira o tamanho da área do seu latifundio (em hectares):</label>
+        <br>
+        <input type="number" id="ipt_tamanho_hectare">
+        <br>
+
+        <label for="ipt_preco_por_sensor">Insira quanto cobrará pelos dados de cada sensor: </label>
+        <br>
+        <input type="number" id="ipt_preco_por_sensor">
+        <br>
+
+        <button onclick="calcular()">Calcular</button>
+        <h3 id="h3_resultado"></h3>
+    </div>
+</body>
+<script>
+    function calcular() {
+        var tamanhoHectare = Number(ipt_tamanho_hectare.value)
+        var precoPorSensor = Number(ipt_preco_por_sensor.value)
+
+        if (tamanhoHectare < 0 || precoPorSensor < 0) {
+
+            alert("[ERRO] Insira números válidos")
+
+        }
+
+        h3_resultado.innerHTML = `
+            O preço total da venda do seus dados são de R$${((tamanhoHectare * 10000) / 20) * precoPorSensor}
+        `
+    }
+</script>
+
+</html>
