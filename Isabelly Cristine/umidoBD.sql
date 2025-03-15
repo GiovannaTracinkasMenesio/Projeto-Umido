@@ -33,6 +33,7 @@ create table usuario(
     email varchar(70) not null,
     telefone varchar(14) not null,
     dt_nascimento date not null,
+    senha char(20) not null,
     foreign key (id_endereco) references endereco(id_endereco),
     foreign key (id_plano) references plano(id_plano),
     foreign key (id_tipo_plantacao) references tipo_plantacao(id_tipo_plantacao)
