@@ -21,14 +21,7 @@ function Resultado(){
         gasto_custo = total_custo * 0.061;
         perda_lucro = total_lucro * 0.061;
 
-        Resposta.innerHTML = `<h1>Olá ${nomeUsuario}, parece que escolheu a plantação de ${tipo_plantacao}!</h1>
-        <h3>
-          Você tem um total de R$${total_lucro}, parece ser muito!! Mas a sua plantação também tem um custo de R$${total_custo}.
-          <br>
-          Mas infelizmente, esses numeros podem ser prejudicados se uma queimada acontecer, te causando uma perda no lucro de R$${perda_lucro}, sem contar o fator de precisar refazer todos os custos, que girariam em torno de um adicional de ${gasto_custo}.
-          <br>
-          Agora, utilizando o nosso sistema, você não teria que se preocupar com isso. De acordo com a Lei nº 11.196/2005 (lei do bem) os impostos podem ser diminuidos em até 60% com formas de prevenção biodegradáveis, estimando um valor de R${economia_imposto} na sua cobrança de impostos!!
-        </h3>`
+        Resposta.innerHTML = ``
 
     } else if(tipo_plantacao == "milho"|| tipo_plantacao == "Milho"){
         lucro_por_hectare = 4250;
@@ -39,14 +32,6 @@ function Resultado(){
         gasto_custo = total_custo * 0.061;
         perda_lucro = total_lucro * 0.061;
 
-        Resposta.innerHTML = `<h1>Olá ${nomeUsuario}, parece que escolheu a plantação de ${tipo_plantacao}!</h1>
-        <h3>
-          Você tem um total de R$${total_lucro}, parece ser muito!! Mas a sua plantação também tem um custo de R$${total_custo}.
-          <br>
-          Mas infelizmente, esses numeros podem ser prejudicados se uma queimada acontecer, te causando uma perda no lucro de R$${perda_lucro}, sem contar o fator de precisar refazer todos os custos, que girariam em torno de um adicional de ${gasto_custo}.
-          <br>
-          Agora, utilizando o nosso sistema, você não teria que se preocupar com isso. De acordo com a Lei nº 11.196/2005 (lei do bem) os impostos podem ser diminuidos em até 60% com formas de prevenção biodegradáveis, estimando um valor de R${economia_imposto} na sua cobrança de impostos!!
-        </h3>`
 
     }  else if(tipo_plantacao == "Café"|| tipo_plantacao == "café" ||  tipo_plantacao == "Cafe" ||  tipo_plantacao == "cafe" ){
         lucro_por_hectare = 19000;
@@ -57,14 +42,6 @@ function Resultado(){
         gasto_custo = total_custo * 0.061;
         perda_lucro = total_lucro * 0.061;
 
-        Resposta.innerHTML = `<h1>Olá ${nomeUsuario}, parece que escolheu a plantação de ${tipo_plantacao}!</h1>
-        <h3>
-          Você tem um total de R$${total_lucro}, parece ser muito!! Mas a sua plantação também tem um custo de R$${total_custo}.
-          <br>
-          Mas infelizmente, esses numeros podem ser prejudicados se uma queimada acontecer, te causando uma perda no lucro de R$${perda_lucro}, sem contar o fator de precisar refazer todos os custos, que girariam em torno de um adicional de ${gasto_custo}.
-          <br>
-          Agora, utilizando o nosso sistema, você não teria que se preocupar com isso. De acordo com a Lei nº 11.196/2005 (lei do bem) os impostos podem ser diminuidos em até 60% com formas de prevenção biodegradáveis, estimando um valor de R${economia_imposto} na sua cobrança de impostos!!
-        </h3>`
 
     }  else if(tipo_plantacao == "soja"|| tipo_plantacao == "Soja"){
         lucro_por_hectare = 3000;
@@ -75,14 +52,6 @@ function Resultado(){
         gasto_custo = total_custo * 0.061;
         perda_lucro = total_lucro * 0.061;
 
-        Resposta.innerHTML = `<h1>Olá ${nomeUsuario}, parece que escolheu a plantação de ${tipo_plantacao}!</h1>
-        <h3>
-          Você tem um total de R$${total_lucro}, parece ser muito!! Mas a sua plantação também tem um custo de R$${total_custo}.
-          <br>
-          Mas infelizmente, esses numeros podem ser prejudicados se uma queimada acontecer, te causando uma perda no lucro de R$${perda_lucro}, sem contar o fator de precisar refazer todos os custos, que girariam em torno de um adicional de ${gasto_custo}.
-          <br>
-          Agora, utilizando o nosso sistema, você não teria que se preocupar com isso. De acordo com a Lei nº 11.196/2005 (lei do bem) os impostos podem ser diminuidos em até 60% com formas de prevenção biodegradáveis, estimando um valor de R${economia_imposto} na sua cobrança de impostos!!
-        </h3>`
 
     }  else if(tipo_plantacao == "Algodão"|| tipo_plantacao == "algodão" ||  tipo_plantacao == "algodao" ||  tipo_plantacao == "Algodao" ){
         lucro_por_hectare = 6200;
@@ -93,7 +62,10 @@ function Resultado(){
         gasto_custo = total_custo * 0.061;
         perda_lucro = total_lucro * 0.061;
 
-        Resposta.innerHTML = `<h1>Olá ${nomeUsuario}, parece que escolheu a plantação de ${tipo_plantacao}!</h1>
+
+    }
+
+    Resposta.innerHTML = `<h1>Olá ${nomeUsuario}, parece que escolheu a plantação de ${tipo_plantacao}!</h1>
         <h3>
           Você tem um total de R$${total_lucro}, parece ser muito!! Mas a sua plantação também tem um custo de R$${total_custo}.
           <br>
@@ -101,7 +73,6 @@ function Resultado(){
           <br>
           Agora, utilizando o nosso sistema, você não teria que se preocupar com isso. De acordo com a Lei nº 11.196/2005 (lei do bem) os impostos podem ser diminuidos em até 60% com formas de prevenção biodegradáveis, estimando um valor de R${economia_imposto} na sua cobrança de impostos!!
         </h3>`
-    }
 }
 
 /** calculo de perda baseado na rede de pesquisa agro(total da perda por conta das queimadas/PiB Brasileiro) 
