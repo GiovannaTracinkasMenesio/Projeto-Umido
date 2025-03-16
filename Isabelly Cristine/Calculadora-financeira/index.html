@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+  <div class="row">
+      <div class="col-4">
+        <img src="images/Umido (2).png">
+        <div class="imagem-text">
+          <img src="images/text.png">
+        </div>
+        <h1>Para demonstrar o que você ganharia com o nosso projeto, vamos usar um modelo
+          <br>
+          de calculadora financeira, simulando os gastos de plantação e tudo envolvendo ela!! 
+        </h1>
+        <div class="imagem-folha">
+          <img src="images/umido (4).png">
+        </div>
+      </div>
+  </div>
+  <div class="container-fluid">
+    <!--Aqui começa o formulário!!-->
+      <form action="" class="form">
+        <div class="Inputs">
+            <label for="">Digite o seu nome!:</label>
+            <br>
+            <input type="text" id="nome" placeholder="Ex: João Lira">
+            <br>
+            <label for="">Estime um tamanho para a plantação!:</label>
+            <br>
+            <input type="text" id="tamanho" placeholder="Em hectares!" required>
+            <br>
+            <label for="">Estime o valor do imposto de renda!:</label>
+            <br>
+            <input type="text" id="valor" placeholder="Ex: R$937,50" required>
+            <br>
+            <label for="">agora vamos escolher uma plantação!:</label> 
+            <br>
+            <label for="">Cana-de-açúcar, milho, café, soja ou algodão</label>
+            <br>
+            <input type="text" id="plantacao" placeholder="Ex: Milho" required>
+        </div>      
+        <button type="button" onclick="Resultado()">Ver o resultado</button>
+      </form>
+    <!--Aqui termina o formulário!!-->
+    <!--Começo da imagem com texto fixada do lado do formulário-->
+      <div class="imagem-lado">
+          <img src="images/Umido (3).png">
+          <h3>A partir da plantação que você escolher, 
+              <br>
+              os resultados irão aparecer logo abaixo. Todas
+              <br>
+              as informações que serão mostradas estão 
+              <br>
+              tendo em base fontes de pesquisa confiáveis!
+
+          </h3>
+      </div>
+    <!--aqui termina imagem com texto fixada do lado do formulário-->
+    <!--Começo da resposta, dependendo da escolha do usuário-->
+      <div id="Resposta">
+        
+      </div>
+    <!--final da resposta, dependendo da escolha do usuário-->
+  </div>
+</body>
+<script src="comandos.js"></script>
+</html>

@@ -1,0 +1,179 @@
+body {
+    background: #ffffff;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-attachment: fixed;
+}
+
+.col-4 img {
+    width: 70px;
+}
+
+.imagem-text img {
+    width: 350px; /* Define a largura total do container */
+    max-width: 700px; /* Ajuste conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+    display: block; /* Evita espaçamentos extras */
+    margin: -100px auto 30px; /* Move a imagem para cima ajustando o valor de margin-top */
+}
+
+/*Texto após a imagem-text*/
+h1 {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    color: #20b627;
+    margin: -80px auto 30px;
+}
+
+/*Texto após a imagem ao lado do formulário*/
+h3 {
+    font-family: 'Arial', sans-serif;
+    color: #4f99bb;
+    margin: -20px auto 30px;
+}
+
+.imagem-folha1 {
+    position: relative; /* Contêiner para controlar a posição da imagem */
+    z-index: 1; /* Garante que a imagem esteja no topo do conteúdo */
+}
+
+.imagem-folha img {
+    width: 70px; /* Define a largura total do container */
+    max-width: 700px; /* Ajuste conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+    display: block; /* Evita espaçamentos extras */
+    margin: -30px auto 30px; /* Move a imagem para cima ajustando o valor de margin-top */
+}
+
+/* Container principal */
+.container-fluid {
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo no centro */
+    align-items: flex-start; /* Alinha os itens no topo */
+    padding: 20px;
+    flex-wrap: wrap; /* Permite que os itens se movam para a linha seguinte em telas menores */
+}
+
+/* Estilo para o form */
+.form {
+    text-align: left;
+    width: 25%; /* Ajuste para que o formulário ocupe menos espaço */
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    background-color: #ffffff;
+    padding: 3rem;
+    margin-left: 40px;
+    margin-top: 20px; /* Adicionando espaçamento entre o header e o form */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 20px 20px 20px 20px #bbd4ac; /* Sombra leve para destaque */
+    font-family: 'Arial', sans-serif; /* Fonte mais acessível */
+    border: 1px solid #bbd4ac; /* Contorno verde leve */
+}
+
+/* Ajustes para a imagem ao lado do formulário */
+.imagem-lado {
+    flex: 1;
+    text-align: center; /* Alinha a imagem no centro */
+}
+
+.imagem-lado img {
+    max-width: 100%; /* Garante que a imagem não ultrapasse o tamanho do contêiner */
+    height: auto;
+}
+
+/* Estilos para o container da imagem e o formulário juntos */
+.container-fluid > .imagem-text {
+    width: 100%; /* Garante que a imagem ocupe toda a largura */
+    text-align: center; /* Centraliza a imagem */
+    margin-bottom: 20px; /* Espaço entre a imagem e o formulário */
+}
+
+/* Ajuste no estilo das labels */
+label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #20b627;
+    font-family: 'Arial', sans-serif; /* Fonte acessível */
+    margin-bottom: 20px; /* Espaço abaixo de cada label */
+}
+
+/* Ajuste no estilo dos inputs */
+input {
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 20px; /* Espaço entre os campos de entrada */
+    border-radius: 5px; /* Bordas arredondadas nos campos */
+    border: 1px solid #7ed167; /* Borda leve */
+    width: 100%; /* Preenche toda a largura do formulário */
+}
+
+/* Estilo para o radio-button */
+.radio-group {
+    display: flex;
+    gap: 15px; /* Espaço entre os itens */
+    flex-wrap: wrap; /* Permite que quebrem de linha se a tela for pequena */
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Espaço entre o botão e o texto */
+    color: #20b627;
+}
+
+
+.radio-group input {
+    margin: 0;
+    width: 16px; /* Define um tamanho fixo para todos os botões */
+    height: 16px;
+}
+
+
+
+/* Estilizando o botão */
+button {
+    padding: 10px 20px; /* Espaçamento interno do botão */
+    font-size: 1rem; /* Tamanho da fonte */
+    background-color: #ffffff; /* Fundo branco */
+    color: #20b627; /* Cor da letra verde */
+    border: 2px solid #20b627; /* Contorno verde */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    transition: background-color 0.4s, color 0.4s; /* Transição suave de fundo e cor ao passar o mouse */
+    font-weight: bold; /* Deixa o texto em negrito */
+}
+
+/* Efeito ao passar o mouse sobre o botão */
+button:hover {
+    border: 2px solid #064a69;
+    background-color: #1b7199; /* Muda o fundo para verde */
+    color: #ffffff; /* Muda a cor da letra para branco */
+}
+
+#Resposta {
+    margin-top: 20px; /* Espaço entre o formulário e o resultado */
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    min-height: 50px;
+    text-align: center;
+    clear: both; /* Garante que nenhum elemento fique ao lado */
+}
+
+#Resposta h1 {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    color: #20b627;
+    margin: 30px auto 30px;
+}
+
+#Resposta h3 {
+    font-family: 'Arial', sans-serif;
+    color: #4f99bb;
+    margin: 20px auto 30px;
+}
