@@ -89,18 +89,16 @@
         <br>
         <input type="number" id="ipt_hectar" placeholder="Ex: 900">
         <br>
-
         <label for="ipt_plantacao">Insira o tipo de plantação</label>
         <br>
         <input type="text" id="ipt_plantacao">
         <br>
-
-        <label for="ipt_preco_por_sensor">Insira quanto cobrará pelos dados de cada sensor: </label>
+        <label for="ipt_preconormal"> Digite o preço da sua produção média por hectare: </label> 
         <br>
-        <input type="number" id="ipt_preco_por_sensor">
-        <br>
+        <input type="text" id="ipt_preconormal">
+         <br>
 
-        <button onclick="calcular()">Calcular</button>
+        <button onclick="calcular()"> Calcular </button>
 
         <div class="resultado_container">
 
@@ -120,8 +118,7 @@
             </div>
 
             <div id="div4">
-                <h3 id="h3_projecao_ano"></h3>
-                <h3 id="h3_projecao_semanal"></h3>
+                <h3 id="h3_precocc"></h3>
             </div>
 
             <div id="div5">
@@ -137,46 +134,61 @@
     function calcular() {
         var area = Number(ipt_hectar.value);
         var plantacao = ipt_plantacao.value;
-        var valorHectar = 0;
+        var preconormal = Number(ipt_preconormal.value)
+        var prodtotal = preconormal * area;
+        var precosct = preconormal * prodtotal
         var total = 0;
         var economiaPrevencao = 0;
         var imposto = 0;
         var totalEconomizado = 0;
         var economiaImposto = 0;
-        var precoPorSensor = Number(ipt_preco_por_sensor.value);
+       
 
-        if (area < 0 || plantacao != "café" && plantacao != "soja" || precoPorSensor < 0) {
+        if (area < 0) {
             alert("Insira um valor válido");
-        }
+        
 
-        else {
-            if (plantacao == "soja") {
-                valorHectar = 3000;
+        if ( tipo == 'soja' || tipo == 'milho' || tipo == 'algodão' ){
+                var precocct = precosct * 1.2
+                var lucrocc = precocct - precosct
+                imposto = 0.1; 
             }
-            else if (plantacao == "café") {
-                valorHectar = 19000;
+
+
+           else if ( tipo == 'café' || tipo == 'feijão' || tipo == 'frutas tropicais' || tipo ==  'banana' || tipo == 'mamão' || tipo == 'manga' ){
+                var precocct = precosct * 1.3
+                var lucrocc = precocct - precosct 
                 imposto = 0.17;
             }
+            else if ( tipo == 'cana-de-açúcar' || tipo == 'arroz' || tipo == 'trigo' || tipo == 'laranja' ){
+                var precocct = precosct * 1.25
+                var lucrocc = precocct - precosct 
+                imposto = 0.15;
+            }
+        }
+            else {
+                var precocct = precosct * 1.25
+                var lucrocc = precocct - precosct 
+                imposto = 0.15;
+            }
 
-            total = valorHectar * area;
 
-            economiaPrevencao = total * 0.3;
-            economiaImposto = total * imposto;
+            
+
+            economiaPrevencao = prodtotal * 0.3;
+            economiaImposto = prodtotal * imposto;
 
             totalEconomizado = economiaPrevencao + economiaImposto;
 
-            var projAnual = totalEconomizado;
+            var preconormal = 
 
-            var projSemanal = totalEconomizado * 52;
-
-            h3_resultado_liquido.innerHTML = `Sua plantação vale R$${total.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ao todo.`;
+            h3_resultado_liquido.innerHTML = `Sua plantação vale R$${prodtotal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ao todo.`;
             h3_resultado_economia.innerHTML = `Você economizará R$${economiaPrevencao.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} com a prevenção`;
             h3_resultado_isencao.innerHTML = `e R$${economiaImposto.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} com impostos.`;
             h3_total_economia.innerHTML = `Economia total: R$${totalEconomizado.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}.`;
-            h3_projecao_semanal.innerHTML = `Projeção de economia após 1 ano (1 vez por semana): R$${projSemanal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}.`;
-            h3_resultado_preco_sensor.innerHTML = `O preço total da venda dos seus dados são de R$${((area * 10000) / 20) * precoPorSensor}`
+            h3_precocc.innerHTML = `Projeção de lucro com preços com certificação: R$${lucrocct.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}.`;
+            h3_resultado_preco_sensor.innerHTML = `O preço médio da venda de dados pode ser de até R$${((area * 10000) * 5 ).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
         }
-    }
+      
 </script>
-
 </html>
