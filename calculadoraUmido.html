@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador financeiro</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 100px;
+            background-image: url(https://images.unsplash.com/photo-1523867574998-1a336b6ded04?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+            /*Coloca imagem no fundo do body */
+        }
+
+        .container {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: white;
+            border-radius: 30px;
+            /* Arredonda as bordas da div main */
+            width: 700px;
+            height: 500px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        h1 {
+            margin: 25px;
+            color: #23A9DF;
+            /*Troca a cor do titulo h1*/
+        }
+
+        input {
+            margin: 20px;
+        }
+
+        button {
+            height: 30px;
+            width: 150px;
+            border: 0;
+            /*remove a borda do botão*/
+            border-radius: 10px;
+            /* Arredonda as bordas do botão */
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: #FFFDFD;
+            margin-top: 50px;
+            background-color: #23A9DF;
+        }
+
+        button:hover {
+            /*Quando arrastar por cima do botão */
+            transition: 0.5s;
+            /*faz uma transição*/
+            background-color: #186B90;
+        }
+
+        .resultado_container {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #D9D9D9;
+            border-end-end-radius: 15px;
+            border-end-start-radius: 15px;
+            text-align: center;
+        }
+
+        .resultado_container div {
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 10px;
+            background: white;
+        }
+
+        .resultado_container h3 {
+            color: #333;
+            font-size: 18px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Simulador financeiro da UMIDO</h1>
+
+        <label for="ipt_hectar">Insira a quantidade de hectares de sua plantação</label>
+        <br>
+        <input type="number" id="ipt_hectar" placeholder="Ex: 900">
+        <br>
+
+        <label for="ipt_plantacao">Insira o tipo de plantação</label>
+        <br>
+        <input type="text" id="ipt_plantacao">
+        <br>
+
+        <label for="ipt_preco_por_sensor">Insira quanto cobrará pelos dados de cada sensor: </label>
+        <br>
+        <input type="number" id="ipt_preco_por_sensor">
+        <br>
+
+        <button onclick="calcular()">Calcular</button>
+
+        <div class="resultado_container">
+
+            <h3>Resultados</h3>
+
+            <div id="div1">
+                <h3 id="h3_resultado_liquido"></h3>
+            </div>
+
+            <div id="div2">
+                <h3 id="h3_resultado_economia"></h3>
+                <h3 id="h3_resultado_isencao"></h3>
+            </div>
+
+            <div id="div3">
+                <h3 id="h3_total_economia"></h3>
+            </div>
+
+            <div id="div4">
+                <h3 id="h3_projecao_ano"></h3>
+                <h3 id="h3_projecao_semanal"></h3>
+            </div>
+
+            <div id="div5">
+                <h3 id="h3_resultado_preco_sensor"></h3>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+<script>
+    function calcular() {
+        var area = Number(ipt_hectar.value);
+        var plantacao = ipt_plantacao.value;
+        var valorHectar = 0;
+        var total = 0;
+        var economiaPrevencao = 0;
+        var imposto = 0;
+        var totalEconomizado = 0;
+        var economiaImposto = 0;
+        var precoPorSensor = Number(ipt_preco_por_sensor.value);
+
+        if (area < 0 || plantacao != "café" && plantacao != "soja" || precoPorSensor < 0) {
+            alert("Insira um valor válido");
+        }
+
+        else {
+            if (plantacao == "soja") {
+                valorHectar = 3000;
+            }
+            else if (plantacao == "café") {
+                valorHectar = 19000;
+                imposto = 0.17;
+            }
+
+            total = valorHectar * area;
+
+            economiaPrevencao = total * 0.3;
+            economiaImposto = total * imposto;
+
+            totalEconomizado = economiaPrevencao + economiaImposto;
+
+            var projAnual = totalEconomizado;
+
+            var projSemanal = totalEconomizado * 52;
+
+            h3_resultado_liquido.innerHTML = `Sua plantação vale R$${total.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ao todo.`;
+            h3_resultado_economia.innerHTML = `Você economizará R$${economiaPrevencao.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} com a prevenção`;
+            h3_resultado_isencao.innerHTML = `e R$${economiaImposto.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} com impostos.`;
+            h3_total_economia.innerHTML = `Economia total: R$${totalEconomizado.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}.`;
+            h3_projecao_semanal.innerHTML = `Projeção de economia após 1 ano (1 vez por semana): R$${projSemanal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}.`;
+            h3_resultado_preco_sensor.innerHTML = `O preço total da venda dos seus dados são de R$${((area * 10000) / 20) * precoPorSensor}`
+        }
+    }
+</script>
+
+</html>
